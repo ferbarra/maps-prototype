@@ -1,5 +1,7 @@
 let map;
 let mapInfo = document.getElementById("info");
+let tracks_kml_url = "https://s3.ca-central-1.amazonaws.com/maps-miguel/railway(1).kml";
+// let tracks_kml_url = 'https://developers.google.com/maps/documentation/javascript/examples/kml/westcampus.kml';
 
 const markers = [
     {
@@ -59,7 +61,7 @@ const markers = [
 ];
 
 function initMap() {
-    console.log('caca');
+
     mapSettings = {
         zoom: 11,
         center: new google.maps.LatLng(53.5444, -113.4909),
@@ -75,6 +77,22 @@ function initMap() {
 
         addEventListenerToMarker(newMarker, marker);
     }
+
+    // Add KML layer.
+    let railwayLayer = new google.maps.KmlLayer(tracks_kml_url, {
+        supressInfoWindows: true
+    });
+
+    let railwayButton = document.getElementById("toggle-railway");
+    railwayButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        console.log(railwayLayer.getMap());
+        if (railwayLayer.getMap() === undefined) {
+            railwayLayer.setMap(map);
+        } else {
+            railwayLayer.setMap(undefined);
+        }
+    });
 }
 
 function addEventListenerToMarker(marker, data) {

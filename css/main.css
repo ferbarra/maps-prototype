@@ -21,13 +21,29 @@ header {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 auto;
           flex: 0 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
   background-color: #1f3551;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 header h1 {
   font-size: 1.5rem;
   text-align: center;
   color: white;
+  margin-right: 2rem;
+}
+
+header button {
+  color: white;
+  background-color: green;
+  border: none;
 }
 
 #map {

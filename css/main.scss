@@ -9,12 +9,25 @@ body {
     flex: 0 1 auto;
 }
 header {
+    // This line helps maintain the vertical alignment
+    // of the main components of the page.
     flex: 0 1 auto;
+
+    display: flex;
+    flex-flow: row;
     background-color: #1f3551;
+    padding-left: 2rem;
+    padding-right: 2rem;
     h1 {
         font-size: 1.5rem;
         text-align: center;
         color: white;
+        margin-right: 2rem;
+    }
+    button {
+        color: white;
+        background-color: green;
+        border: none;
     }
 }
 #map {
