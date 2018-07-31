@@ -80,7 +80,8 @@ function initMap() {
 
     // Add KML layer.
     let railwayLayer = new google.maps.KmlLayer(tracks_kml_url, {
-        supressInfoWindows: true
+        supressInfoWindows: true,
+        preserveViewport: true
     });
 
     let railwayButton = document.getElementById("toggle-railway");
